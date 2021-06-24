@@ -1,0 +1,32 @@
+
+html{
+  font-size: 62.5%;
+}
+body{
+  font-family: $fontFamily;
+  color: $color-font1;
+  letter-spacing: normal;
+  line-height: $lineheight-m;
+  min-height: 100vh;
+  @include pc{
+    @include fz-rem($fontsize-m);
+  }
+  @include sp{
+    @include fz-rem($fontsize-m * 2);
+  }
+}
+
+// IE11での游ゴシック対策
+///* IE11だけに適応 （游ゴシックの見え方が違うため）*/
+// _:lang(x)::-ms-backdrop, body {
+// 	font-family: "Segoe UI", "メイリオ", Meiryo, sans-serif;
+// }
+
+// デフォルトでマウスホバー時に透過
+a{
+  // text-decoration: none;
+  transition: opacity .2s;
+  &:hover{
+    opacity: .6;
+  }
+}

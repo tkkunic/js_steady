@@ -1,0 +1,57 @@
+{
+  "name": "js_steady",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf publish/",
+    "start": "gulp --development && gulp serve",
+    "build": "gulp --development",
+    "publish": "npm run clean && gulp --publish",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/preset-env": "^7.14.7",
+    "autoprefixer": "^9.8.4",
+    "babel-loader": "^8.2.2",
+    "browser-sync": "^2.26.14",
+    "css-mqpacker": "^7.0.0",
+    "eslint": "^7.4.0",
+    "gulp": "^4.0.2",
+    "gulp-cli": "^2.3.0",
+    "gulp-convert-encoding": "^2.1.0",
+    "gulp-data": "^1.3.1",
+    "gulp-ejs": "^4.1.2",
+    "gulp-header": "^2.0.9",
+    "gulp-htmlhint": "^2.2.1",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-mode": "^1.1.0",
+    "gulp-notify": "^3.2.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^8.0.0",
+    "gulp-prettify": "^0.5.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-replace": "^1.0.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-pngquant": "^9.0.2",
+    "imagemin-svgo": "^9.0.0",
+    "node-sass": "^4.14.1",
+    "postcss-flexbugs-fixes": "^4.2.1",
+    "webpack": "^5.40.0",
+    "webpack-merge": "^5.8.0",
+    "webpack-stream": "^6.1.2"
+  },
+  "dependencies": {
+    "jquery": "^3.5.1"
+  },
+  "browserslist": [
+    "last 1 version",
+    "> 1%",
+    "IE 11"
+  ]
+}

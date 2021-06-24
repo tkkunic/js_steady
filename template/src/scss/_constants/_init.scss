@@ -1,0 +1,70 @@
+//サイズ
+// モバイルフレンドリー
+$mobileSize: 320;
+
+// viewport
+$breakpoint: 768px;
+$breakpoints: (
+  sm: (max-width: 567px),
+  md: (max-width: 768px),
+  lg: (max-width: 992px),
+  xl: (max-width: 1200px),
+  xxl: (min-width: 768px + 1px)
+) !default;
+
+// contents width
+$contents-width: 1000 !default;
+
+// color
+$color-main: #00b4ed;
+
+$color-font1: #1e1e1e;
+$color-font2: #6e6e6e;
+$color-font3: #bebebe;
+$color-font4: #00b4ed;
+
+$color-link: #00b4ed;
+$color-box: #00b4ed;
+$color-attention: red;
+$color-error: red;
+
+$button-color1: #00b4ed;
+$button-color2: #dcdcdc; // inactive
+
+$input-color1: #f5f5f5;
+
+$border-color1: #dcdcdc;
+
+// button size
+$button-size1: 666;
+$button-size2: 414;
+$button-size3: 160;
+$button-height1: 56;
+$button-height2: 48;
+
+// fontsize
+$fontsize-xl: 20;
+$fontsize-l: 18;
+$fontsize-m: 16;
+$fontsize-s: 14;
+$fontsize-xs: 13;
+
+// lineheight
+$lineheight-xl: 2.4;
+$lineheight-l: 2;
+$lineheight-m: 1.7;
+$lineheight-s: 1.2;
+$lineheight-xs: 1;
+
+
+// ヘッダー
+$header-height: 80;
+
+// フッター
+$footer-color: #fff;
+$footer-bg: #1e1e1e;
+$footer-height: 56;
+
+// コピーライト
+$copy-color: #fff;
+$copy-size: 11;

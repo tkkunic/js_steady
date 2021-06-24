@@ -1,0 +1,36 @@
+// レスポンシブミックスイン
+@mixin sp() {
+  @media #{map-get($breakpoints, md)} {
+    @content;
+  }
+}
+@mixin tb() {
+  @media #{map-get($breakpoints, lg)} {
+    @content;
+  }
+}
+@mixin pc() {
+  @media #{map-get($breakpoints, xxl)} {
+    @content;
+  }
+}
+// レスポンシブミックスイン
+// 引数を入れて使うタイプ
+// sm, md, lg, xl, xxl ← 選んで使う
+@mixin resp($size: xxl) {
+  $viewport : (min-width: 567px)!default;
+  @if $size == sm{
+    $viewport: map-get($breakpoints, sm)
+  }@else if $size == md{
+    $viewport: map-get($breakpoints, md)
+  }@else if $size == lg{
+    $viewport: map-get($breakpoints, lg)
+  }@else if $size == xl{
+    $viewport: map-get($breakpoints, xl)
+  }@else if $size == xxl{
+    $viewport: map-get($breakpoints, xxl)
+  }
+  @media screen and #{$viewport} {
+    @content;
+  }
+}

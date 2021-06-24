@@ -1,0 +1,22 @@
+{
+  "name": "SAMPLE SITE",
+  "description": "",
+  "keywords": "",
+  "rootUrl": "/",
+  "ogpImage": "",
+  "facebookAdmins": "",
+  "facebookAppId": "",
+  "twitterCard": "summary_large_image",
+  "twitterSite": "@SiteAccount",
+
+  "copyright": "&copy; SAMPLE SITE ALL RIGHTS",
+
+  "category": {
+    "1": "post",
+    "2": "about",
+    "3": "category",
+    "4": "sns",
+    "5": "poricy",
+    "6": "poricy"
+  }
+}

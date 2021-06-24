@@ -1,0 +1,36 @@
+$base-fs: 16;
+
+// vw計算
+// 計算用なのでこのままはあまり使わない
+@function get-vw($size, $viewport: $mobileSize){
+	$rate: 100 / $viewport;
+	@return $rate * $size * 1vw;
+}
+@function get-em($viewport: $breakPoint, $size: $base-fs){
+	@return $viewport / $size * 1em;
+}
+
+// 汎用vw変換mixin
+// @include vw(プロパティ, 値 [,値])で設定。
+@mixin vw($properties, $value1:'', $value2:'', $important: '') {
+	@if $value2 == '' {
+		#{$properties}: get-vw($value1)#{$important};
+	} @else if type-of($value2) != number {
+		#{$properties}: get-vw($value1) $value2#{$important};
+	} @else if type-of($value1) != number {
+		#{$properties}: $value1 get-vw($value2)#{$important};
+	} @else {
+		#{$properties}: get-vw($value1) get-vw($value2)#{$important};
+	}
+}
+
+// フォント用vw計算
+// フォントサイズをvwで計算してくれる
+@mixin fz-vw($font_size: $base-fs, $important: ''){
+	font-size: get-vw($font_size)#{$important};
+}
+
+// フォント用rem計算
+@mixin fz-rem($font_size: $base-fs) {
+  font-size: #{$font_size / 10}rem;
+}

@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<%
+  if(typeof pageData === 'undefined') {const pageData = ''}
+  const pageDir = pageData.absolutePath.replace(/\\/g, '/').split('pages')[1].split('/').filter(n => n !== "");
+  const pageDirLength = pageDir.length;
+
+  const PAGE = {
+    // page title
+    TITLE: (pageData.title === '') ? SITE_DATA.name : `${pageData.title} | ${SITE_DATA.name}`,
+    // page description
+    DESCRIPTION: (pageData.description === 'undefined' || pageData.description === '') ? '' : pageData.description,
+    // page url (use: og:url, canonical,)
+    URL: `${SITE_DATA.rootUrl}${pageDir.join('/')}`,
+  };
+  const OG = {
+    // og title
+    TITLE: (typeof pageData.title === 'undefined' || pageData.title === '') ? SITE_DATA.name : pageData.title,
+    // og type（website or article）
+    TYPE: (pageDirLength > 0) ? 'article' : 'websaite',
+    // og site name
+    NAME: (typeof pageData.ogpSiteName === 'undefined' || pageData.ogpSiteName === '') ? SITE_DATA.name : pageData.ogpSiteName,
+    // og description
+    DESCRIPTION: (typeof pageData.ogDesription ==='undefined' || pageData.ogDesription === '') ? PAGE.DESCRIPTION : pageData.ogDesription,
+    // og image
+    IMAGE: (!pageData.ogpImage) ? "" : pageData.ogpImage,
+    // og url
+    URL: PAGE.URL,
+  };
+
+  // カノニカル設定用
+  let pageCanonical;
+  if(pageData.canonical && pageData.canonical === true){
+    pageCanonical = PAGE.URL;
+  }else
+  if(pageData.canonical && typeof pageData.canonical === "string"){
+    pageCanonical = pageData.canonical;
+  }
+-%>
+
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><%- PAGE.TITLE %></title>
+<meta name="description" content="<%- PAGE.DESCRIPTION %>">
+<meta name="format-detection" content="telephone=no">
+
+<%# canonical %>
+<% if(pageCanonical && pageCanonical !== "") { -%>
+<link rel="canonical" href="<%- pageCanonical %>">
+<% } -%>
+
+<%# stylesheet %>
+<!-- <link rel="stylesheet" href="<%- filePath %>assets/css/reset.css"> -->
+<link rel="stylesheet" href="<%- filePath %>assets/css/style.css">
+<!-- <link rel="stylesheet" href="<%- filePath %>assets/font/font.css"> -->
+<%
+// 固有スタイルシートの設定　（pagesのejsファイル  Add Resourceのstyleに記載されたファイルの読み込み）
+if(pageData.style){
+const pageStyle = pageData.style
+pageStyle.forEach((val, ind) => {
+-%>
+<link rel="stylesheet" href="<%- val %>">
+<%  })} %>
+
+<%# js %>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" defer></script> -->
+<script src="<%- filePath %>assets/js/main.js" defer></script>
+<%
+// 固有jsファイルの設定　（pagesのejsファイル  Add Resourceのscriptに記載されたファイルの読み込み）
+if(pageData.script){
+const pageScript = pageData.script
+pageScript.forEach((val, ind) => {
+-%>
+<script src="<%- val %>" defer></script>
+<%  })} %>
+
+</head>

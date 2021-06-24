@@ -1,0 +1,276 @@
+// /*!
+// * ress.css • v4.0.0
+// * MIT License
+// * github.com/filipelinhares/ress
+// */
+
+// /* # =================================================================
+//   # Global selectors
+//   # ================================================================= */
+
+html {
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  word-break: normal;
+  -moz-tab-size: 4;
+  tab-size: 4;
+}
+
+*,
+::before,
+::after {
+  background-repeat: no-repeat;
+  box-sizing: inherit;
+}
+
+::before,
+::after {
+  text-decoration: inherit;
+  vertical-align: inherit;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+// /* # =================================================================
+//     # General elements
+//     # ================================================================= */
+
+hr {
+  overflow: visible;
+  height: 0;
+  color: inherit;
+}
+
+details,
+main {
+  display: block;
+}
+
+summary {
+  display: list-item;
+}
+
+[hidden] {
+  display: none;
+}
+
+// 略語要素
+// TODO: ページ上で未使用なためコメント
+// abbr[title] {
+//   border-bottom: none;
+//   text-decoration: underline;
+//   text-decoration: underline dotted;
+// }
+
+a:active,
+a:hover {
+  outline-width: 0; /* Remove the outline when hovering in all browsers */
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+}
+
+// TODO:要素に直接スタイルは付けない不使用
+// sub,
+// sup {
+//   font-size: 75%;
+//   line-height: 0;
+//   position: relative;
+//   vertical-align: baseline;
+// }
+// sub {
+//   bottom: -0.25em;
+// }
+// sup {
+//   top: -0.5em;
+// }
+
+table {
+  border-collapse: collapse;
+  border-spacing:0;
+  border-color: inherit;
+  text-indent: 0;
+}
+
+// /* # =================================================================
+//     # Forms
+//     # ================================================================= */
+
+// カーソルを矢印に
+[disabled] {
+  cursor: default;
+}
+
+// スピンボタン（右のボタン）の高さをautoに指定
+// Chromeのインクリメントボタンとデクリメントボタンのカーソルスタイルを修正
+[type='number']::-webkit-inner-spin-button,
+[type='number']::-webkit-outer-spin-button {
+  height: auto;
+}
+
+[type='search'] {
+  -webkit-appearance: textfield; // ChromeとSafariの奇妙な外観を修正する
+  outline-offset: -2px; // Safariのアウトラインスタイルを修正
+}
+
+[type='search']::-webkit-search-decoration {
+  -webkit-appearance: none; // macOSのChromeとSafariの内側のパディングを削除
+}
+textarea {
+  overflow: auto; // IE11用
+  resize: vertical; // エリア拡縮は縦方向のみに
+}
+// 初期化
+button,
+input,
+select,
+textarea {
+  font: inherit; // デフォルトのフォントを指定
+}
+// 上記の設定で十分かなと
+// input,
+// button,
+// optgroup,
+// select,
+// textarea {
+//   appearance: none;
+//   background: transparent;
+//   border: none;
+//   border-radius: 0;
+//   font: inherit;
+//   outline: none;
+// }
+optgroup {
+  font-weight: bold; // 前のルールで設定されていないフォントの太さを復元
+}
+button {
+  overflow: visible; // Address `overflow` set to `hidden` in IE 8/9/10/11
+}
+button,
+select {
+  text-transform: none; // Firefox 40+, Internet Explorer 11-
+}
+
+// ボタン要素にカーソルポインタを適用
+button,
+label,
+select,
+[type='button'],
+[type='reset'],
+[type='submit'],
+[role='button'] {
+  cursor: pointer;
+  color: inherit;
+}
+
+// Firefox4以降で内側のパディングと境界線を削除
+button::-moz-focus-inner,
+[type='button']::-moz-focus-inner,
+[type='reset']::-moz-focus-inner,
+[type='submit']::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+// 上記の境界線のリセットで削除されたフォーカススタイルを置き換え
+button:-moz-focusring,
+[type='button']::-moz-focus-inner,
+[type='reset']::-moz-focus-inner,
+[type='submit']::-moz-focus-inner {
+  outline: 1px dotted ButtonText;
+}
+
+button,
+[type='reset'],
+[type='submit'] {
+  -webkit-appearance: button; // iOSでクリック可能なタイプのスタイルを設定できない問題を修正
+}
+
+// すべてのブラウザでデフォルトのボタンスタイルを削除
+button,
+input,
+select,
+textarea {
+  background-color: transparent;
+  border-style: none;
+}
+
+// TODO:アウトラインを消すとアクセシビリティに関わるためコメント
+// a:focus,
+// button:focus,
+// input:focus,
+// select:focus,
+// textarea:focus {
+//   outline-width: 0;
+// }
+
+// 標準入力のようにスタイルを選択
+// select {
+//   -moz-appearance: none; /* Firefox 36+ */
+//   -webkit-appearance: none; /* Chrome 41+ */
+// }
+
+select::-ms-expand {
+  display: none; // IE11での矢印を消す
+}
+
+select::-ms-value {
+  color: currentColor; // Internet Explorer 11+
+}
+
+// <fieldset>でグループ化されたフォームの入力項目に対して、タイトルを付けるためのタグ
+legend {
+  border: 0; // Correct `color` not being inherited in IE 8/9/10/11
+  color: inherit; // IEの `fieldset`要素からの色の継承を修正
+  display: table; // EdgeとIEでのテキストの折り返しを修正
+  max-width: 100%; // EdgeとIEでのテキストの折り返しを修正
+  white-space: normal; // EdgeとIEでのテキストの折り返しを修正
+  max-width: 100%; // Edge18およびIEでのテキストの折り返しを修正
+}
+
+// ファイルセレクト用　IE11非対応
+::-webkit-file-upload-button {
+  // iOSとSafariでクリック可能なタイプのスタイルを設定できない問題を修正
+  -webkit-appearance: button;
+  color: inherit;
+  font: inherit; // ChromeとSafariでフォントのプロパティを「継承」に変更
+}
+
+// /* # =================================================================
+//     # Specify media element style
+//     # ================================================================= */
+
+img {
+  display: block;
+}
+
+// Chrome、Firefox、Operaで正しい垂直方向の配置を追加
+progress {
+  vertical-align: baseline;
+}
+
+// /* # =================================================================
+//     # Accessibility
+//     # ================================================================= */
+
+// 更新要素の進行カーソルを指定
+[aria-busy='true'] {
+  cursor: progress;
+}
+
+// トリガー要素のポインターカーソルを指定
+[aria-controls] {
+  cursor: pointer;
+}
+
+// 無効、編集不可、またはその他の方法で操作できない要素のスタイルなしカーソルを指定
+[aria-disabled='true'] {
+  cursor: default;
+}

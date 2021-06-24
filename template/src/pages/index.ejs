@@ -1,0 +1,43 @@
+<%
+const pageData = {
+  // Page Data
+  title: "いんでっくす", // 空のままでsite.jsonで設定した`name`が表示されます。文字列を入れると[ `ページタイトル` || `サイト名`]で表示されます。
+  description: "", // ページのディスクリプション
+
+  // カノニカルタグ
+  canonical: false, // 真偽値のtrueで自身のurl、文字列を入れればそれが生成されます。それ以外はカノニカルは生成されず無視されます。
+
+  // Add Resource　追加のページ固有のリソースをできます。
+  // 例：style: [`${filePath}assets/css/top.css`, 'http://sample.com/common/css/style.css'],
+  style: [],
+  script: [],
+
+  // これの下にある処理でファイルの構造を見て
+  breadcrumbList: [
+    "HOME",
+  ],
+
+  // Do not change.
+  absolutePath: absolutePath,
+  filePath: filePath,
+  srcPath: srcPath,
+}
+
+%>
+<%- include(`${srcPath}_components/_foundation/_head`, {pageData})  %>
+
+<body>
+  <div class="l-wrapper">
+    <%- include(`${srcPath}_components/_partial/_header`, {})  %>
+    <%## include(`${srcPath}_components/_partial/_breadcrumb`, {pathObj})  %>
+    <main class="l-main">
+      <div class="p-main">
+        <ul>
+          <ol></ol>
+        </ul>
+      </div>
+    </main>
+    <%- include(`${srcPath}_components/_partial/_footer`, {})  %>
+  </div>
+</body>
+</html>
